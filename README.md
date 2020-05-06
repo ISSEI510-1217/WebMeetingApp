@@ -20,5 +20,6 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   ## Dockerの初期セットアップ
 
   ```
-  
+  docker-compose up --build -d
+  docker-compose run web bash -c "mix deps.compile && mix ecto.create && mix ecto.migrate"
   ```

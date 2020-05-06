@@ -1,14 +1,15 @@
-FROM elixir:1.10.2
+FROM elixir:latest
 
-ENV NODE_VERSION 10.x
+ENV NODE_VERSION 11
+ENV PHOENIX_VERSION 1.4.0
 
-RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash \
-  && apt-get install -y nodejs
-
-RUN npm install npm@latest -g
-
-RUN mix local.hex --force && \
-  mix archive.install hex phx_new 1.4.3 --force && \
-  mix local.rebar --force
-
+RUN apt-get update \
+    && curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash \
+    && apt-get install -y nodejs inotify-tools \
+    && npm install n yarn -g \
+    && n stable \
+    && npm update -g npm \
+    && mix local.hex --force \
+    && mix archive.install --force hex phx_new ${PHOENIX_VERSION} \
+    && mix local.rebar --force
 WORKDIR /app

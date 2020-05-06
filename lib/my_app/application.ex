@@ -6,14 +6,17 @@ defmodule MyApp.Application do
   use Application
 
   def start(_type, _args) do
-    # List all child processes to be supervised
     children = [
       # Start the Ecto repository
       MyApp.Repo,
-      # Start the endpoint when the application starts
+      # Start the Telemetry supervisor
+      MyAppWeb.Telemetry,
+      # Start the PubSub system
+      {Phoenix.PubSub, name: MyApp.PubSub},
+      # Start the Endpoint (http/https)
       MyAppWeb.Endpoint
-      # Starts a worker by calling: MyApp.Worker.start_link(arg)
-      # {MyApp.Worker, arg},
+      # Start a worker by calling: MyApp.Worker.start_link(arg)
+      # {MyApp.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

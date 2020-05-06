@@ -13,9 +13,10 @@ config :my_app,
 # Configures the endpoint
 config :my_app, MyAppWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "vaPhetniElljQQ43mYQqt8W4/v6qF4tSoJanqF90073cSNa7DWID9PGj9S8DqFS7",
-  render_errors: [view: MyAppWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: MyApp.PubSub, adapter: Phoenix.PubSub.PG2]
+  secret_key_base: "qzK7rxNUhtD+4Eu9wtA1iHE0Q1MDoTa6czNiZm2+pIHqrvBk1naBo/qzYgBV1dar",
+  render_errors: [view: MyAppWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: MyApp.PubSub,
+  live_view: [signing_salt: "j8GE5NFY"]
 
 # Configures Elixir's Logger
 config :logger, :console,

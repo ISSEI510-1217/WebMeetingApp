@@ -83,6 +83,6 @@ defmodule MyAppWeb.UserControllerTest do
 
   defp create_user(_) do
     user = fixture(:user)
-    {:ok, user: user}
+    %{user: user}
   end
 end

@@ -1,5 +1,15 @@
 use Mix.Config
 
+# Configure your database
+config :my_app, MyApp.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "postgres",
+  password: "postgres",
+  database: "my_app_dev",
+  hostname: "db",
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -49,10 +59,10 @@ config :my_app, MyAppWeb.Endpoint,
 config :my_app, MyAppWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-      ~r{priv/gettext/.*(po)$},
-      ~r{lib/my_app_web/views/.*(ex)$},
-      ~r{lib/my_app_web/templates/.*(eex)$}
+      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/gettext/.*(po)$",
+      ~r"lib/my_app_web/(live|views)/.*(ex)$",
+      ~r"lib/my_app_web/templates/.*(eex)$"
     ]
   ]
 
@@ -65,12 +75,3 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
-
-# Configure your database
-config :my_app, MyApp.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "my_app_dev",
-  hostname: "db",
-  pool_size: 10

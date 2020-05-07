@@ -4,6 +4,7 @@
 
 ```
 docker-compose up --build -d
+docker-compose run web bash -c "mix setup"
 docker-compose run web bash -c "mix deps.compile && mix ecto.create && mix ecto.migrate"
 ```
 

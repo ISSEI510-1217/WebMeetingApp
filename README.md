@@ -5,8 +5,8 @@
 ```
 docker-compose up --build -d
 docker-compose run web bash -c "mix setup"
-docker-compose run web bash -c "mix deps.compile && mix ecto.create && mix ecto.migrate"
 ```
+初回以降は,`docker-compose up -d`を叩くと動く.
 
 - その後,`localhost:4000`にアクセスできるか確認する.
 

@@ -17,7 +17,7 @@ defmodule MyAppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-
+    get "/home", HomeController, :index
     resources "/users", UserController
   end
 

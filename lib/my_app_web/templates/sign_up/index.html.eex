@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <header>
+        <h1 class="hoge">Sign up</h1>
+    </header>
+    <body>
+        <p><input type="name" id="name" placeholder="edit name"></p>
+        <p><input type="email" id="email" placeholder="edit email"></p>
+        <p><input type="password" id="password" placeholder="edit password"></p>
+    </body>
+<html>
+
+

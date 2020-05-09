@@ -17,6 +17,7 @@ defmodule MyAppWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/sign_up", SignUpController, :index #sign_up画面のパスとSignUpController関数との紐付け
 
     resources "/users", UserController
   end

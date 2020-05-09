@@ -19,6 +19,8 @@ defmodule MyAppWeb.Router do
     get "/", PageController, :index
 
     resources "/users", UserController
+    get "/signin", SessionController, :new
+    post "/signin", SessionController, :login
   end
 
   # Other scopes may use custom stacks.

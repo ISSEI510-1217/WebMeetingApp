@@ -1,0 +1,16 @@
+<%= form_for @changeset, Routes.session_path(@conn, :login), fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <input type="email" style="margin-top: 150px; font-size: 20px; height: 77px; background: #E5E2E4;" name="email" placeholder="edit email">
+  <%= error_tag f, :email %>
+
+  <input type="password" style="margin-top: 80px; font-size: 20px; height: 77px; background: #E5E2E4" name="password" placeholder="edit password">
+  <%= error_tag f, :password %>
+   <div style="margin-top: 100px;">
+    <%= submit "Sign in" %>
+    </div>
+<% end %>

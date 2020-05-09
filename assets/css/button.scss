@@ -1,0 +1,25 @@
+/* This file is for your main application css. */
+
+@import "./phoenix.css";
+.base_button,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+    overflow: hidden;
+    width: 760px;
+    background: #FFA500;
+    border-radius: 20px;
+    color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    // line-height: 3.8rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    white-space: nowrap;
+    height: 77px;
+}

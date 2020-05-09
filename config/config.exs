@@ -18,6 +18,19 @@ config :my_app, MyAppWeb.Endpoint,
   pubsub_server: MyApp.PubSub,
   live_view: [signing_salt: "j8GE5NFY"]
 
+#Piepeline, Guardian, ErrorHandlerの関連付け
+config :my_app, MyApp.Auth.LoginSessionPipeline,
+  module: MyApp.Auth.Guardian
+
+config :my_app, MyApp.Auth.EnsureAuthPipeline,
+  module: MyApp.Auth.Guardian,
+  error_handler: MyApp.Auth.EnsureAuthErrorHandler
+
+config :my_app, MyApp.Auth.EnsureNotAuthPipeline,
+  module: MyApp.Auth.Guardian,
+  error_handler: MyApp.Auth.EnsureNotAuthErrorHandler
+
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

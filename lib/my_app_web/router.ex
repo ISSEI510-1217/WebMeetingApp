@@ -13,11 +13,39 @@ defmodule MyAppWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :login_session do
+    plug MyApp.Auth.LoginSessionPipeline
+  end
+
+  pipeline :ensure_auth do
+    plug MyApp.Auth.EnsureAuthPipeline
+  end
+
+  pipeline :ensure_not_auth do
+    plug MyApp.Auth.EnsureNotAuthPipeline
+  end
+
+  scope "/users", MyAppWeb.users, as: :users do
+    # ログインしている場合のみ表示できるページなので :ensure_auth を含む
+    pipe_through [:browser, :login_session, :ensure_auth]
+    get "/", ArticleController, :index, as: :root
+    delete "/logout", SessionController, :delete, as: :logout
+  end
+
+  scope "/users", MyAppWeb.users, as: :users do
+    # ログインしていない場合のみ表示できるページなので :ensure_not_auth を含む
+    pipe_through [:browser, :login_session, :ensure_not_auth]
+    get "/login", SessionController, :new, as: :login
+    post "/login", SessionController, :create, as: :login
+  end
+
   scope "/", MyAppWeb do
-    pipe_through :browser
+    pipe_through [:browser, :login_session]
 
     get "/", PageController, :index
 
+    #ここ微妙(注意)
+    resources "/", ArticleController, only: [:index]
     resources "/users", UserController
   end
 

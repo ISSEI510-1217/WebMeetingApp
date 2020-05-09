@@ -34,7 +34,9 @@ defmodule MyApp.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.5.0"},
+      {:phoenix_pubsub, "~> 2.0.0"},
       {:phoenix_ecto, "~> 4.1"},
+      {:mariaex, ">= 0.9.1"},
       {:ecto_sql, "~> 3.4"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.11"},
@@ -44,7 +46,11 @@ defmodule MyApp.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:cowboy, "~> 2.7.0"},
+      {:guardian, "~> 2.1.1"},
+      {:comeonin, "~> 5.3.1"},
+      {:argon2_elixir, "~> 2.3.0"},
     ]
   end
 

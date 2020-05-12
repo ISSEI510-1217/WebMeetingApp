@@ -1,31 +1,56 @@
 /* This file is for your main application css. */
+
 @import "./phoenix.css";
 
 /* Alerts and form errors */
+
 .alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
+
 .alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
 }
+
 .alert-warning {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
 }
+
 .alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
+
 .alert p {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
+
 .alert:empty {
-  display: none;
+    display: none;
+}
+
+body {
+    overflow: hidden;
+}
+
+div.all-area {
+    width: 100vw;
+}
+
+div.main-area {
+    background-color: #FFD07F;
+    margin-left: 260px;
+    width: auto;
+    min-height: 500px;
+    height: 100vh;
+    vertical-align: middle;
+    text-align: center;
 }

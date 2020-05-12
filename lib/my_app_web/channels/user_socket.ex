@@ -1,5 +1,6 @@
 defmodule MyAppWeb.UserSocket do
   use Phoenix.Socket
+  channel "call", MyAppWeb.VideoChannel
 
   ## Channels
   # channel "room:*", MyAppWeb.RoomChannel

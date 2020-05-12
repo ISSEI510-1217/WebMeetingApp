@@ -10,7 +10,7 @@
   </head>
   <body style="margin: 0px;">
     <header>
-      <h1 style="line-height: 10vh; font-weight: bold;">Sign in</h1>
+      <h1 style="line-height: 10vh; font-weight: bold;">meet with<%= @conn.request_path %></h1>
     </header>
     <main role="main" class="container" style="margin: 0px">
       <script src="//cdn.temasys.com.sg/adapterjs/0.10.x/adapter.debug.js"></script>

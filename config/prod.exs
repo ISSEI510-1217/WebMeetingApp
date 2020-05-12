@@ -10,8 +10,8 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :my_app, MyAppWeb.Endpoint,
-  http: [port: 4000],
-    check_origin: ["//black-glum-turkey.gigalixirapp.com"],
+  http: [:inet6, port: System.get_env("PORT") || 4000],
+  url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
@@ -54,18 +54,3 @@ config :logger, level: :info
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
 # import_config "prod.secret.exs"
-
-config :my_app, MyApp.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  url: "${DATABASE_URL}",
-  database: "",
-  ssl: true,
-  pool_size: 2
-
-config :my_app, MyApp.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "yCpPjpIi0cvmMzGP",
-  database: "meet_with_db",
-  socket_dir: "/cloudsql/meet-web-db",
-  pool_size: 10

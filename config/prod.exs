@@ -54,3 +54,11 @@ config :logger, level: :info
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
 # import_config "prod.secret.exs"
+
+config :my_app, MyApp.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  username: "phoenix",
+  password: "yCpPjpIi0cvmMzGP",
+  database: "meet_with_db",
+  hostname: "localhost",
+  pool_size: 10

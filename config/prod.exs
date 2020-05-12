@@ -27,9 +27,6 @@ config :my_app, MyAppWeb.Endpoint,
 
 # Do not print debug messages in production
 config :logger, level: :info
-config :my_app, MyApp.Repo,
-  url: "${DATABASE_URL}"
-
 
 # ## SSL Support
 #
@@ -68,3 +65,6 @@ config :my_app, MyApp.Repo,
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
 import_config "prod.secret.exs"
+
+config :my_app, MyApp.Repo,
+  url: "${DATABASE_URL}"

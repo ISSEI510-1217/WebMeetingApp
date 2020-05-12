@@ -57,6 +57,10 @@ config :logger, level: :info
 
 config :my_app, MyApp.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: "ecto://postgresql:77630892-a276-4f7d-ace5-373417934810-user:pw-121db074-9c4e-4a8f-9d1a-403ca5d34558@postgres-free-tier-1.gigalixir.com:5432/77630892-a276-4f7d-ace5-373417934810",
-  ssl: true,
-  pool_size: 2
+    username: "77630892-a276-4f7d-ace5-373417934810-user",
+    password: "pw-121db074-9c4e-4a8f-9d1a-403ca5d34558",
+    database: "77630892-a276-4f7d-ace5-373417934810",
+    hostname: "postgres-free-tier-1.gigalixir.com",
+    port: 5432,
+    timeout: 1000,
+    pool_size: 10

@@ -12,7 +12,8 @@
     <header>
       <h1 style="line-height: 10vh; font-weight: bold;">Sign in</h1>
     </header>
-    <main role="main" class="container">
+    <main role="main" class="container" style="margin: 0px">
+      <script src="//cdn.temasys.com.sg/adapterjs/0.10.x/adapter.debug.js"></script>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= @inner_content %>

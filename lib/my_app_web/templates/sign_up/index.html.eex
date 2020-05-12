@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <header>
-        <h1 class="hoge">Sign up</h1>
-    </header>
-    <body>
-        <p><input type="name" id="name" placeholder="edit name"></p>
-        <p><input type="email" id="email" placeholder="edit email"></p>
-        <p><input type="password" id="password" placeholder="edit password"></p>
-    </body>
-<html>
-
-
+    <input type="text" style=" margin-top: 111px;font-size: 20px; height: 77px; width: 760px; background: #E5E2E4; border-radius: 20px;" name="name" placeholder="edit name">
+    <input type="email" style="margin-top: 54px; font-size: 20px; height: 77px; width: 760px; background: #E5E2E4; border-radius: 20px;" name="email" placeholder="edit email">
+    <input type="password" style="margin-top: 54px; font-size: 20px; height: 77px; width: 760px; background-color: #E5E2E4; border-radius: 20px;" name="password" placeholder="edit password">
+    <div style="margin-top: 100px;">
+        <%= submit "Sign up" %>
+    </div>

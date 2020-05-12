@@ -28,7 +28,7 @@ config :my_app, MyAppWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 config :my_app, MyApp.Repo,
-  url: "${DATABASE_URL}",
+  url: "${DATABASE_URL}"
 
 
 # ## SSL Support

@@ -59,6 +59,6 @@ config :my_app, MyApp.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "phoenix",
   password: "yCpPjpIi0cvmMzGP",
-  database: "meet_with_db",
+  database: "meet_with",
   hostname: "localhost",
   pool_size: 10

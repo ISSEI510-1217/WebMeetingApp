@@ -11,6 +11,7 @@ use Mix.Config
 # before starting your production server.
 config :my_app, MyAppWeb.Endpoint,
   server: true, # Without this line, your app will not start the web server!
+    http: [port: {:system, "PORT"}],
   secret_key_base: "${SECRET_KEY_BASE}",
   url: [host: "${APP_NAME}.gigalixirapp.com", port: 443],
   cache_static_manifest: "priv/static/cache_manifest.json"
@@ -26,6 +27,9 @@ config :my_app, MyAppWeb.Endpoint,
 
 # Do not print debug messages in production
 config :logger, level: :info
+config :my_app, MyApp.Repo,
+  url: "${DATABASE_URL}",
+
 
 # ## SSL Support
 #
@@ -64,11 +68,3 @@ config :logger, level: :info
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
 import_config "prod.secret.exs"
-
-config :my_app, MyApp.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "phoenix",
-  password: "yCpPjpIi0cvmMzGP",
-  database: "meet_with",
-  hostname: "localhost",
-  pool_size: 10

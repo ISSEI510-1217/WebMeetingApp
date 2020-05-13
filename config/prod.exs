@@ -10,10 +10,11 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :my_app, MyAppWeb.Endpoint,
-  http: [port: 4000],
-    check_origin: ["//black-glum-turkey.gigalixirapp.com"],
-  cache_static_manifest: "priv/static/cache_manifest.json"
-
+  http: [:inet6, port: System.get_env("PORT") || 4000],
+  url: [host: "serpentine-live-poodle.gigalixirapp.com", port: 80],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
+  server: true
 # Do not print debug messages in production
 config :logger, level: :info
 

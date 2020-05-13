@@ -59,6 +59,6 @@ config :my_app, MyApp.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: "${DATABASE_URL}",
   database: "",
-  host: "35.238.156.108"
+  host: "35.238.156.108",
   ssl: true,
   pool_size: 25

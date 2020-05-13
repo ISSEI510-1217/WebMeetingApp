@@ -60,4 +60,4 @@ config :my_app, MyApp.Repo,
   url: System.get_env("DATABASE_URL"),
   database: "",
   ssl: true,
-  pool_size: 100
+  pool_size: 1000

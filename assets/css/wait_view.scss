@@ -1,0 +1,24 @@
+#sign_up_button:hover {
+    background-color: #606c76;
+    border-color: #606c76;
+    color: #fff;
+    outline: 0
+}
+
+#sign_up_button {
+    background: rgba(0, 0, 0, 0.9);
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 30px;
+}
+
+#wait_view_p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 40px;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    margin-top: 30px;
+}

@@ -39,7 +39,7 @@ config :logger, level: :info
 # `:compatible` for wider support.
 #
 # `:keyfile` and `:certfile` expect an absolute path to the key
-# and cert in disk or a relativpath inside priv, for example
+# and cert in disk or a relative path inside priv, for example
 # "priv/ssl/server.key". For all supported SSL configuration
 # options, see https://hexdocs.pm/plug/Plug.SSL.html#configure/1
 #
@@ -57,8 +57,8 @@ config :logger, level: :info
 
 config :my_app, MyApp.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: "postgresql://gigalixir_admin:pw-af4d084e-3e95-4576-9d04-b086eb3a69b2@35.238.156.108:5432/26270d53-41c1-43c9-b22c-13b5b6330579",
+  url: "${DATABASE_URL}",
   database: "",
   ssl: true,
-  port: 5432,
+  port: 5432
   pool_size: 25

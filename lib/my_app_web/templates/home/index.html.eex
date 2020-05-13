@@ -1,33 +1,15 @@
 <div class="all-area">
     <ul class="accordion-menu">
         <h2>Side Menu</h2>
-        <div class="dropdownlink">
-            <i class="fa fa-road" aria-hidden="true"></i> Meeting
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </div>
-        <ul class="submenuItems">
-            <li><a href="#">create meeting </a></li>
-            <li><a href="#">sanka meeting</a></li>
-        </ul>
-        <div class="dropdownlink">
-            <i class="fa fa-paper-plane" aria-hidden="true"></i> Game
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </div>
-        <ul class="submenuItems">
-            <li><a href="#">game1</a></li>
-            <li><a href="#">game2</a></li>
-        </ul>
-        <div class="dropdownlink">
-            <i class="fa fa-motorcycle" aria-hidden="true"></i> Setting
-            <i class="fa fa-chevron-down" aria-hidden="true"></i>
-        </div>
-        <ul class="submenuItems">
-            <li><a href="#">profile</a></li>
-            <li><a href="#">camera</a></li>
-            <li><a href="#">volume</a></li>
-        </ul>
+        <label for="local-stream">Local Video Stream</label>
+        <video width="50%" id="local-stream" autoplay muted></video>
+        <label for="remote-stream">Remote Video Stream</label>
+        <video width="50%" id="remote-stream" autoplay></video>
+        <button id="connect">Connect</button>
+        <button id="call">Call</button>
+        <button id="disconnect">Disconnect</button>
     </ul>
     <div class="main-area" style="text-align:center">
-        <h2 style="position:absolute; top:30%; right: -50%;">welcome to user!!</h2>
+        <h2 style="position:absolute; top:40%; right: -30%;">welcome to user!!</h2>
     </div>
 </div>

@@ -60,5 +60,5 @@ config :my_app, MyApp.Repo,
   url: "${DATABASE_URL}",
   database: "",
   ssl: true,
-  port: 5432
+  port: 5432,
   pool_size: 25

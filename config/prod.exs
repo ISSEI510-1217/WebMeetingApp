@@ -57,4 +57,9 @@ config :logger, level: :info
 
 config :my_app, MyApp.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: "${DATABASE_URL}"
+  database: "26270d53-41c1-43c9-b22c-13b5b6330579",
+  password: "pw-af4d084e-3e95-4576-9d04-b086eb3a69b2"
+  host: "35.238.156.108",
+  ssl: true,
+  port: 5432,
+  pool_size: 25

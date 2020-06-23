@@ -5,14 +5,14 @@ defmodule MyApp.Accounts.User do
   schema "users" do
     field :age, :integer
     field :name, :string
-
+    field :token, :string
     timestamps()
   end
 
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :age])
-    |> validate_required([:name, :age])
+    |> cast(attrs, [:name, :age, :token])
+    |> validate_required([:name, :age, :token])
   end
 end

@@ -7,6 +7,7 @@ defmodule MyAppWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :assign_current_user
   end
 
   pipeline :api do
@@ -18,8 +19,10 @@ defmodule MyAppWeb.Router do
 
     get "/", PageController, :index
     get "/home", HomeController, :index
-    resources "/users", UserController
+    get "/users", UserController, :index
+    get "/users/callback", UserController, :callback
     get "/signin", SessionController, :new
+    get "/home", HomeController, :logined
     post "/signin", SessionController, :login
   end
 
@@ -35,6 +38,9 @@ defmodule MyAppWeb.Router do
   # If your application does not have an admins-only section yet,
   # you can use Plug.BasicAuth to set up some basic authentication
   # as long as you are also using SSL (which you should anyway).
+    defp assign_current_user(conn, _) do
+    assign(conn, :current_user, get_session(conn, :current_user))
+  end
   if Mix.env() in [:dev, :test] do
     import Phoenix.LiveDashboard.Router
 

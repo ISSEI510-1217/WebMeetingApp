@@ -14,16 +14,19 @@ defmodule MyAppWeb.UserController do
   def callback(conn, %{"code" => code}) do
   # 返却されたコードからトークンを取得します
     client = Accounts.get_token!(code: code)
-
+    result = client.token.access_token
+    result = Poison.decode(result) #JSONをElixirのタプル型に変更
+    result = elem(result, 1) #タプルの中にある、Mapを取り出す
+    access_token = result["access_token"] 
+    IO.inspect client
     # アクセストークンを使ってユーザ情報取得API にリクエストします.
     user = %{
-      name: client,
-      age: nil,
+      name: "ほげ",
+      age: 10,
       token: client.token.access_token
     }
     Accounts.create_user(user)
     conn
-    |> put_session(:current_user, client)
     |> put_session(:access_token, client.token.access_token)
     |> redirect(to: "/home")
   end

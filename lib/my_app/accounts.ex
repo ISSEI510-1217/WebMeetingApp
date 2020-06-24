@@ -8,6 +8,8 @@ defmodule MyApp.Accounts do
   alias MyApp.Accounts.User
 
   use OAuth2.Strategy
+
+
   def new do
     OAuth2.Client.new([
       strategy: __MODULE__,
@@ -28,7 +30,7 @@ defmodule MyApp.Accounts do
 
   def authorize_url!(params \\ []) do
     new()
-    |> put_param(:scope, "user") # スコープはひとまず user のみ
+    |> put_param(:scope, "activity:read_all") # スコープはひとまず user のみ
     |> OAuth2.Client.authorize_url!(params)
   end
 
@@ -88,7 +90,7 @@ defmodule MyApp.Accounts do
   """
   def create_user(attrs \\ %{}) do
     changeset = User.changeset(%User{}, attrs)
-    Repo.insert(changeset)
+    Repo.insert!(changeset)
   end
 
   @doc """

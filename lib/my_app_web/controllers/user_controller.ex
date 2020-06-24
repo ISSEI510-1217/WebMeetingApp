@@ -23,11 +23,11 @@ defmodule MyAppWeb.UserController do
     user = %{
       name: "ほげ",
       age: 10,
-      token: client.token.access_token
+      token: access_token
     }
     Accounts.create_user(user)
     conn
-    |> put_session(:access_token, client.token.access_token)
+    |> put_session(:access_token, access_token)
     |> redirect(to: "/home")
   end
   # def index(conn, _params) do

@@ -3,12 +3,12 @@
     <h2>Side Menu</h2>
     <button id="connect">Connect</button>
     <button id="call">Call</button>
-    <button id="disconnect">Disconnect</button>
+    <button id="hangup">Hangup</button>
   </ul>
   <div class="main-area" style="text-align:center">
-    <label style="padding-top: 50px" for="local-stream">Local Video Stream</label>
-    <video width="50%" id="local-stream" autoplay muted></video>
-    <label for="remote-stream">Remote Video Stream</label>
-    <video width="50%" id="remote-stream" autoplay></video>
+    <label style="padding-top: 50px" for="localVideo">Local Video Stream</label>
+    <video width="50%" height="50%" id="localVideo" autoplay muted></video>
+    <label for="remoteVideo">Remote Video Stream</label>
+    <video width="50%" height="50%" id="remoteVideo" autoplay></video>
   </div>
 </div>

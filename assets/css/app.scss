@@ -42,13 +42,14 @@ body {
 }
 
 div.all-area {
-    width: 100vw;
+    margin-left: 0;
 }
 
 div.main-area {
     background-color: #FFD07F;
     margin-left: 260px;
     width: auto;
+    margin-right: 20px;
     min-height: 500px;
     height: 100vh;
     vertical-align: middle;

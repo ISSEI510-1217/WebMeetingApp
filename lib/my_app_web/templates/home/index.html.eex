@@ -1,15 +1,14 @@
-<div class="all-area">
-    <ul class="accordion-menu">
-        <h2>Side Menu</h2>
-        <label for="local-stream">Local Video Stream</label>
-        <video width="50%" id="local-stream" autoplay muted></video>
-        <label for="remote-stream">Remote Video Stream</label>
-        <video width="50%" id="remote-stream" autoplay></video>
-        <button id="connect">Connect</button>
-        <button id="call">Call</button>
-        <button id="disconnect">Disconnect</button>
-    </ul>
-    <div class="main-area" style="text-align:center">
-        <h2 style="position:absolute; top:40%; right: -30%;">welcome to user!!</h2>
-    </div>
+<div class="all-area" style="margin-left: 0;">
+  <ul class="accordion-menu" >
+    <h2>Side Menu</h2>
+    <button id="connect">Connect</button>
+    <button id="call">Call</button>
+    <button id="disconnect">Disconnect</button>
+  </ul>
+  <div class="main-area" style="text-align:center">
+    <label style="padding-top: 50px" for="local-stream">Local Video Stream</label>
+    <video width="50%" id="local-stream" autoplay muted></video>
+    <label for="remote-stream">Remote Video Stream</label>
+    <video width="50%" id="remote-stream" autoplay></video>
+  </div>
 </div>

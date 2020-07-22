@@ -5,8 +5,8 @@ defmodule MyAppWeb.VideoChannel do
     {:ok, socket}
   end
 
-  def handle_in("message", %{"body" => body}, socket) do
-    broadcast! socket, "message", %{body: body}
+  def handle_in("peer-message", %{"body" => body}, socket) do
+    broadcast_from!(socket, "peer-message", %{body: body})
     {:noreply, socket}
   end
 end

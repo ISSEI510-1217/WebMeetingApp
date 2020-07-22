@@ -4,8 +4,9 @@
     <button id="connect">Connect</button>
     <button id="call">Call</button>
     <button id="hangup">Hangup</button>
+    <button id="profile">profile</button>
   </ul>
-  <div class="main-area" style="text-align:center">
+  <div class="main-area">
     <label style="padding-top: 50px" for="localVideo">Local Video Stream</label>
     <video width="50%" height="50%" id="localVideo" autoplay muted></video>
     <label for="remoteVideo">Remote Video Stream</label>

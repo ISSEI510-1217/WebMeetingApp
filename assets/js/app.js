@@ -1,21 +1,3 @@
-// We need to import the CSS so that webpack will load it.
-// The MiniCssExtractPlugin is used to separate it out into
-// its own CSS file.
-import "../css/app.scss"
-import "../css/header.scss"
-import "../css/button.scss"
-import "../css/side_menu.scss"
-import "../css/wait_view.scss"
-
-// webpack automatically bundles all modules in your
-// entry points. Those entry points can be configured
-// in "webpack.config.js".
-//
-// Import deps with the dep name or local files with a relative path, for example:
-//
-//     import {Socket} from "phoenix"
-//     import socket from "./socket"
-//
 import "phoenix_html"
 // things
 import socket from "./socket"
@@ -43,10 +25,10 @@ const devices = navigator.mediaDevices;
 
 const connectButton = document.getElementById('connect');
 const callButton = document.getElementById('call');
-const disconnectButton = document.getElementById('disconnect');
+const disconnectButton = document.getElementById('hangup');
 
-const remoteVideo = document.getElementById('remote-stream');
-const localVideo = document.getElementById('local-stream');
+const remoteVideo = document.getElementById('remoteVideo');
+const localVideo = document.getElementById('localVideo');
 
 let peerConnection;
 let remoteStream = new MediaStream();
@@ -69,7 +51,6 @@ async function connect() {
 }
 
 async function call() {
-    console.log("hoge");
     let offer = await peerConnection.createOffer();
     peerConnection.setLocalDescription(offer);
     pushPeerMessage('video-offer', offer);
@@ -78,9 +59,8 @@ async function call() {
 function createPeerConnection(stream) {
     let pc = new RTCPeerConnection({
         iceServers: [
-            // Information about ICE servers - Use your own!
             {
-                urls: 'stun:stun.helochat.id',
+                urls: 'stun:stun.l.google.com:19302',
             },
         ],
     });

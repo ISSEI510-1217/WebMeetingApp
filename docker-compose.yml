@@ -4,6 +4,8 @@ services:
     build: .
     ports:
       - '4000:4000'
+    command: mix deps.get
+    command: mix mix setup
     command: mix phx.server
     environment:
       - MIX_ENV=dev

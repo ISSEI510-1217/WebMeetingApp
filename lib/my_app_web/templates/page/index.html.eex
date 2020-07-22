@@ -1,10 +1,11 @@
-<p id="wait_view_p">Please Choose to sign in or sign up.</p>
-<%= if @current_user do %>
-<div>
-  <%= link "logined", to: Routes.home_path(@conn, :logined) %>
-</div>
+<div class="wait_view_p">
+  <%= if @current_user do %>
+    <div>
+      <%= link "logined", to: Routes.home_path(@conn, :logined) %>
+    </div>
   <% else %>
-      <a class="sign_in_button" href="<%= Routes.user_path(@conn, :index )%>">
-        Sign in with GitHub
-      </a>
-<% end %>
+    <button id="wait_view_button" data-method="get" data-to="<%= Routes.user_path(@conn, :index )%>">
+      Sign in with GitHub
+    </button>
+  <% end %>
+</div>

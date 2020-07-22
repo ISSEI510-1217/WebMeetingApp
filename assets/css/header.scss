@@ -2,17 +2,17 @@
 
 @import "./phoenix.css";
 header {
-    background: #FFA500;
-    color: rgba(0, 0, 0, 0.9);
-    text-align: center;
-    align-items: center;
-    font-size: 45px;
-    filter: drop-shadow(0px 14px 10px rgba(0, 0, 0, 0.6));
-    width: 100vw;
-    height: 10vh;
-    display: inline-block;
+  background: #ffa500;
+  color: rgba(0, 0, 0, 0.9);
+  text-align: center;
+  align-items: center;
+  font-size: 45px;
+  filter: drop-shadow(0px 14px 10px rgba(0, 0, 0, 0.6));
+  width: 100vw;
+  height: 10vh;
+  display: inline-block;
 }
 
 header.h1 {
-    font-weight: 1000;
+  font-weight: 1000;
 }

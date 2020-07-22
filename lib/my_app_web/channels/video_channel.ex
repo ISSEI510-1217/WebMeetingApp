@@ -1,7 +1,7 @@
 defmodule MyAppWeb.VideoChannel do
   use Phoenix.Channel
 
-  def join("call", _auth_msg, socket) do
+  def join("call", auth_msg, socket) do
     {:ok, socket}
   end
 

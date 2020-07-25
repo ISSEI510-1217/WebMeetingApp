@@ -56,9 +56,4 @@ config :logger, level: :info
 # import_config "prod.secret.exs"
 
 config :my_app, MyApp.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  url: {:system, "DATABASE_URL"},
-  database: "",
-  ssl: true,
-  port: 5432,
-  pool_size: 25
+  url: "${DATABASE_URL}"

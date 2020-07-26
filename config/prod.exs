@@ -10,10 +10,9 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :my_app, MyAppWeb.Endpoint,
-  http: [port: 4000],  #<== 追加
-  check_origin: ["//web-meet-with1.gigalixirapp.com/"],
-  cache_static_manifest: "priv/static/cache_manifest.json",
-  server: true
+url: [scheme: "https", host: "web-meet-with1.gigalixirapp.com", port: 443], # ココ
+cache_static_manifest: "priv/static/cache_manifest.json"
+
 # Do not print debug messages in production
 config :logger, level: :info
 
@@ -53,7 +52,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
-# import_config "prod.secret.exs"
-
-config :my_app, MyApp.Repo,
-  url: "${DATABASE_URL}"
+import_config "prod.secret.exs"

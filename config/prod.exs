@@ -10,7 +10,9 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :my_app, MyAppWeb.Endpoint,
-url: [scheme: "https", host: "damp-temple-05884.herokuapp.com", port: 5000],
+http: [port: {:system, "PORT"}],
+load_from_system_env: true,
+url: [scheme: "https", host: "damp-temple-05884.herokuapp.com", port: 443],
 force_ssl: [rewrite_on: [:x_forwarded_proto]],
 secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
 cache_static_manifest: "priv/static/cache_manifest.json"

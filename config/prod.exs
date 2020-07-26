@@ -11,6 +11,8 @@ use Mix.Config
 # before starting your production server.
 config :my_app, MyAppWeb.Endpoint,
 url: [scheme: "https", host: "web-meet-with1.gigalixirapp.com", port: 443],
+force_ssl: [rewrite_on: [:x_forwarded_proto]],
+secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
 cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
@@ -52,4 +54,9 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
-import_config "prod.secret.exs"
+# import_config "prod.secret.exs"
+config :my_app, MyApp.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  ssl: true,
+  url: System.get_env("DATABASE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")

@@ -11,8 +11,8 @@ defmodule MyAppWeb.Endpoint do
   ]
 
   socket "/socket", MyAppWeb.UserSocket,
-    websocket: true,
-    longpoll: false
+  websocket: [timeout: 45_000],
+  longpoll: false
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 

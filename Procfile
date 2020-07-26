@@ -1,1 +1,1 @@
-web: mix ecto.setup && mix ecto.migration && mix phx.server
+web: MIX_ENV=prod mix phx.server

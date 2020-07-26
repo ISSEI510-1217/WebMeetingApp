@@ -18,7 +18,7 @@ defmodule MyApp.Accounts do
       # 生成したクライアントシークレット
       client_secret: "a418426e1fba6f35c856a7ae7366d700f49843f5",
       # 設定したコールバックURL
-      redirect_uri: "http://localhost:4000/users/callback",
+      redirect_uri: "https://damp-temple-05884.herokuapp.com/users/callback",
       # GitHub API のサイト
       site: "https://api.github.com",
       # GitHub が提供する認証用 URL

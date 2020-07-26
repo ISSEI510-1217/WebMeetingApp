@@ -10,7 +10,7 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :my_app, MyAppWeb.Endpoint,
-url: [scheme: "https", host: "web-meet-with1.gigalixirapp.com", port: 443], # ココ
+url: [scheme: "https", host: "web-meet-with1.gigalixirapp.com", port: 443],
 cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production

@@ -5,7 +5,7 @@ let channel = socket.channel("call", {});
 channel
   .join()
   .receive("ok", () => {
-    console.log("Joined successfully 2");
+    console.log("Joined successfully");
   })
   .receive("error", () => {
     console.log("Unable to join");
@@ -43,13 +43,27 @@ connectButton.onclick = connect;
 callButton.onclick = call;
 disconnectButton.onclick = disconnect;
 
+navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
+    getUserMedia: function(c) {
+      return new Promise(function(y, n) {
+        (navigator.mozGetUserMedia ||
+         navigator.webkitGetUserMedia).call(navigator, c, y, n);
+      });
+    }
+ } : null);
+ 
+ if (!navigator.mediaDevices) {
+   console.log("getUserMedia() not supported.");
+   return;
+ }
+
 async function connect() {
   connectButton.disabled = true;
   disconnectButton.disabled = false;
   callButton.disabled = false;
-  const localStream = await navigator.mediaDevices.getUserMedia(
-    mediaConstraints
-  );
+  console.log("check1")
+  const localStream = await navigator.mediaDevices.getUserMedia(mediaConstraints);
+  console.log("check2")
   if (localStream) {
     console.log("Adding local stream...");
     setVideoStream(localVideo, localStream);
@@ -147,7 +161,7 @@ channel.on("peer-message", (payload) => {
 });
 
 function setVideoStream(videoElement, stream) {
-  console.log("next");
+  console.log("set");
   videoElement.srcObject = stream;
 }
 

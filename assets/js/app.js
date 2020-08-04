@@ -30,6 +30,7 @@ const disconnectButton = document.getElementById('hangup');
 const remoteVideo = document.getElementById('remoteVideo');
 const localVideo = document.getElementById('localVideo');
 
+RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection;
 let peerConnection;
 let remoteStream = new MediaStream();
 
@@ -64,9 +65,11 @@ function createPeerConnection(stream) {
             },
         ],
     });
+    console.log(pc)
     pc.ontrack = handleOnTrack;
     pc.onicecandidate = handleIceCandidate;
     stream.getTracks().forEach(track => pc.addTrack(track));
+    console.log(pc)
     return pc;
 }
 

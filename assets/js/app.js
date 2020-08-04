@@ -1,5 +1,4 @@
 import "phoenix_html";
-// things
 import socket from "./socket";
 
 let channel = socket.channel("call", {});

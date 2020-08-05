@@ -24,9 +24,9 @@ const mediaConstraints = {
   audio: true,
   video: true,
 };
-mediaConstraints.video.setAttribute('autoplay', '');
-mediaConstraints.video.setAttribute('muted', '');
-mediaConstraints.video.setAttribute('playsinline', '');
+// video.setAttribute("autoplay", "");
+// video.setAttribute("muted", "");
+// video.setAttribute("playsinline", "");
 
 const connectButton = document.getElementById("connect");
 const callButton = document.getElementById("call");

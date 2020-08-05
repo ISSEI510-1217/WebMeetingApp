@@ -48,27 +48,24 @@ callButton.onclick = call;
 disconnectButton.onclick = disconnect;
 
 async function connect() {
-  try {
-    connectButton.disabled = true;
-    disconnectButton.disabled = false;
-    callButton.disabled = false;
-    const localStream = await navigator.mediaDevices.getUserMedia(
-      mediaConstraints
-    );
-    const videoTracks = localStream.getVideoTracks();
-    console.log("Got stream with constraints:", constraints);
-    console.log(`Using video device: ${videoTracks[0].label}`);
-    setVideoStream(localVideo, localStream);
-    peerConnection = createPeerConnection(localStream);
-  } catch (error) {
-    handleError(error);
-  }
+  connectButton.disabled = true;
+  disconnectButton.disabled = false;
+  callButton.disabled = false;
+  const localStream = await navigator.mediaDevices
+    .getUserMedia(mediaConstraints)
+    .then(setVideoStream(localVideo, localStream), errorCallback);
+  //   setVideoStream(localVideo, localStream);
+  peerConnection = createPeerConnection(localStream);
+}
+
+function errorCallback(err) {
+  alert(err);
 }
 
 async function call() {
   let offer = await peerConnection.createOffer();
   peerConnection.setLocalDescription(offer);
-  pushPeerMessage("video-offer", offer);
+  pushPeerMessage("offer", offer);
 }
 
 function createPeerConnection(stream) {
@@ -76,6 +73,7 @@ function createPeerConnection(stream) {
     iceServers: [
       {
         urls: "stun:stun.l.google.com:19302",
+        urls: "stun:stun.services.mozilla.com",
       },
     ],
   });

@@ -24,6 +24,9 @@ const mediaConstraints = {
   audio: true,
   video: true,
 };
+mediaConstraints.video.setAttribute('autoplay', '');
+mediaConstraints.video.setAttribute('muted', '');
+mediaConstraints.video.setAttribute('playsinline', '');
 
 const connectButton = document.getElementById("connect");
 const callButton = document.getElementById("call");
@@ -53,6 +56,8 @@ async function connect() {
     );
     setVideoStream(localVideo, localStream);
     peerConnection = createPeerConnection(localStream);
+    peerConnection.addTransceiver("audio").setDirection("recvonly");
+    peerConnection.addTransceiver("video").setDirection("recvonly");
   } catch (error) {
     handleError(error);
   }

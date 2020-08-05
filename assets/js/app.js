@@ -43,28 +43,18 @@ connectButton.onclick = connect;
 callButton.onclick = call;
 disconnectButton.onclick = disconnect;
 
-navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
-    getUserMedia: function(c) {
-      return new Promise(function(y, n) {
-        (navigator.mozGetUserMedia ||
-         navigator.webkitGetUserMedia).call(navigator, c, y, n);
-      });
-    }
- } : null);
-
 async function connect() {
-  connectButton.disabled = true;
-  disconnectButton.disabled = false;
-  callButton.disabled = false;
-  console.log("check1")
-  const localStream = await navigator.mediaDevices.getUserMedia(mediaConstraints);
-  console.log("check2")
-  if (localStream) {
-    console.log("Adding local stream...");
+  try {
+    connectButton.disabled = true;
+    disconnectButton.disabled = false;
+    callButton.disabled = false;
+    const localStream = await navigator.mediaDevices.getUserMedia(
+      mediaConstraints
+    );
     setVideoStream(localVideo, localStream);
     peerConnection = createPeerConnection(localStream);
-  } else {
-    console.warn("no local stream, but continue.");
+  } catch (error) {
+    handleError(error);
   }
 }
 

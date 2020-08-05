@@ -20,10 +20,11 @@ function pushPeerMessage(type, content) {
   });
 }
 
-const mediaConstraints = {
+const mediaConstraints = (window.constraints = {
   audio: true,
   video: true,
-};
+});
+
 // video.setAttribute("autoplay", "");
 // video.setAttribute("muted", "");
 // video.setAttribute("playsinline", "");
@@ -54,10 +55,11 @@ async function connect() {
     const localStream = await navigator.mediaDevices.getUserMedia(
       mediaConstraints
     );
+    const videoTracks = localStream.getVideoTracks();
+    console.log("Got stream with constraints:", constraints);
+    console.log(`Using video device: ${videoTracks[0].label}`);
     setVideoStream(localVideo, localStream);
     peerConnection = createPeerConnection(localStream);
-    peerConnection.addTransceiver("audio").setDirection("recvonly");
-    peerConnection.addTransceiver("video").setDirection("recvonly");
   } catch (error) {
     handleError(error);
   }
@@ -151,7 +153,7 @@ channel.on("peer-message", (payload) => {
 });
 
 function setVideoStream(videoElement, stream) {
-  console.log("set");
+  window.stream = stream;
   videoElement.srcObject = stream;
 }
 

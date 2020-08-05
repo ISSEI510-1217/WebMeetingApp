@@ -51,11 +51,6 @@ navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia |
       });
     }
  } : null);
- 
- if (!navigator.mediaDevices) {
-   console.log("getUserMedia() not supported.");
-   return;
- }
 
 async function connect() {
   connectButton.disabled = true;
